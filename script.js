@@ -147,4 +147,78 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+const form = document.getElementById('reviewForm');
+const reviewList = document.getElementById('reviewList');
+
+// --- Sterren rating logica ---
+let selectedRating = 0;
+const stars = document.querySelectorAll('#starRating span');
+
+stars.forEach(star => {
+  star.addEventListener('mouseover', () => {
+    const val = star.getAttribute('data-value');
+    stars.forEach(s => s.classList.toggle('hover', s.getAttribute('data-value') <= val));
+  });
+
+  star.addEventListener('mouseout', () => {
+    stars.forEach(s => s.classList.remove('hover'));
+  });
+
+  star.addEventListener('click', () => {
+    selectedRating = parseInt(star.getAttribute('data-value'));
+    stars.forEach(s => s.classList.toggle('selected', s.getAttribute('data-value') <= selectedRating));
+  });
+});
+form.addEventListener('submit', (e) => {
+  e.preventDefault(); // voorkom standaard submit
+
+  const name = document.getElementById('name').value.trim();
+  const review = document.getElementById('review').value.trim();
+  const avatarInput = document.getElementById('avatar').value.trim();
+
+  if (!name || !review) return; // check lege velden
+
+  if (selectedRating === 0) {
+    alert('Geef astublieft eerst een Beoordeling.');
+    return;
+  }
+
+  // Standaard grijs poppetje als geen URL
+  const avatar = avatarInput ? avatarInput : "https://www.bing.com/th/id/OIP.J3MyiG7V9QLHeu-x6xiT7wHaHa?w=197&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2";
+
+  const reviewBox = document.createElement('div');
+  reviewBox.classList.add('review-box');
+  let starsHTML = '';
+for (let i = 0; i < selectedRating; i++) starsHTML += '⭐';
+
+reviewBox.innerHTML = `
+  <img src="${avatar}" class="review-avatar" alt="Avatar">
+  <div class="review-stars">${starsHTML}</div>
+  <p>"${review}"</p>
+  <span>- ${name}</span>
+`;
+
+  reviewList.appendChild(reviewBox);
+  form.reset(); // reset formulier
+});
+// Functie om een random aantal sterren (1 t/m 5) te genereren
+function randomStars() {
+  return (Math.random() * 1 + 4).toFixed(1); // geeft 1.0 t/m 5.0 met 1 decimaal
+}
+
+// Functie om een random aantal reviews te genereren
+function randomReviewCount() {
+  return Math.floor(Math.random() * 400) + 200; // 1 t/m 500 reviews
+}
+
+// Voorbeeld van hoe je dit kunt gebruiken in je HTML
+const averageStars = randomStars();
+const reviewCount = randomReviewCount();
+
+document.getElementById("review-info").innerHTML = `
+  Gemiddelde beoordeling: ${averageStars} ★<br>
+  Aantal reviews: ${reviewCount}
+`;
+
+
 
