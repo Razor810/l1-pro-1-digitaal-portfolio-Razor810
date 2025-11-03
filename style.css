@@ -89,6 +89,7 @@ img {
 .bottom-nav {
   display: flex;
   gap: 30px;
+  padding:5px;
 }
 
 .top-nav a,

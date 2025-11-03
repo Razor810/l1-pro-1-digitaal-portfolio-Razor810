@@ -69,8 +69,6 @@ otherInput.addEventListener('input', () => {
   donationAmount = parseFloat(otherInput.value);
 });
 
-
-
 // --- Volgende stap knop ---
 nextBtn.addEventListener('click', () => {
   // Controleer op geldig bedrag
