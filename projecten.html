@@ -7,104 +7,7 @@
     <link rel="icon"
         href="https://th.bing.com/th/id/R.958fda05bf9e4bade63efcf4f8993cc4?rik=YAHH3Tc%2bIJ%2beGQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f05%2fFree-Cool-Backgrounds.jpg&ehk=0gWAb017otulL7B1%2bopLj1BnqNxGjZOvZ8BOa9S9Fdg%3d&risl=&pid=ImgRaw&r=0">
     <title>Projecten</title>
-    <style>
-        html {
-            height: 100%;
-            background-color: #000;
-        }
-
-        body {
-            font-family: 'Montserrat', Arial, sans-serif;
-            margin: 0;
-            min-height: 100vh;
-            height: 100%;
-            background: url('https://png.pngtree.com/background/20230522/original/pngtree-black-background-with-blue-glowing-hexagons-picture-image_2685510.jpg') no-repeat center center fixed;
-            background-size: cover;
-            background-color: #000;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        header {
-            background: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            text-align: center;
-            width: 100%;
-            padding: 0;
-            z-index: 100;
-        }
-
-        nav {
-            width: 100%;
-            padding: 10px 0;
-        }
-
-        nav a {
-            color: #ffffff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1em;
-            padding: 12px 0;
-            display: inline-block;
-            transition: color 0.2s;
-        }
-
-        nav a:hover,
-        nav a.active {
-            color: #007bff;
-        }
-
-        #projecten {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .project-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .project-card {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            padding: 20px;
-            width: 250px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .project-card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .project-card img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-
-        .project-card a {
-            color: #007BFF;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .project-card a:hover {
-            text-decoration: underline;
-        }
-
-        h2 {
-            color: white;
-            margin-bottom: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/projectenstyle.css">
 </head>
 
 <body>
@@ -134,6 +37,11 @@
                 <p>Ik heb voor school een Portfolio gemaakt (degene waar je nu op zit):</p>
                 <a href="index.html" rel="noopener noreferrer">Mijn Portfolio</a>
             </div>
+        </div>
+        <div class="project-card">
+            <img src="images/screenshotgame.png" alt="Project 3">
+            <p>Ik heb voor school een game in javascript gemaakt:</p>
+            <a href="game.html" rel="noopener noreferrer">Endless Runner</a>
         </div>
     </section>
 </body>
